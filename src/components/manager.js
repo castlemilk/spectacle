@@ -9,6 +9,7 @@ import size from 'lodash/size';
 import findIndex from 'lodash/findIndex';
 import get from 'lodash/get';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { setGlobalStyle, updateFragment } from '../actions';
 import Typeface from './typeface';
 import { getSlideByIndex } from '../utils/slides';
@@ -927,9 +928,11 @@ export class Manager extends Component {
   }
 }
 
-export default connect(
-  state => state,
-  null,
-  null,
-  { withRef: true }
-)(Manager);
+export default withRouter(
+  connect(
+    state => state,
+    null,
+    null,
+    { withRef: true }
+  )(Manager)
+);
